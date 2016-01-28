@@ -18,15 +18,16 @@ import ktyminski.spring.domain.*;
 
 @Entity
 @NamedQueries({ 
-	@NamedQuery(name = "wynajmujacy.wszystkie", query = "Select w from Wynajmujacy w"),
+	@NamedQuery(name = "wynajmujacy.wszyscy", query = "Select w from Wynajmujacy w"),
+	@NamedQuery(name = "wynajmujacy.poimieniu", query = "Select w from Wynajmujacy w where w.nazwisko= :nazwisko")
 
 })
 public class Wynajmujacy {
 	
 	private Long id;
-	private String imie = "";
-	private String nazwisko = "";
-	private Long pesel;
+	private String imie;
+	private String nazwisko;
+	private String pesel;
 
 	private List<Mieszkania> mieszkania = new ArrayList<Mieszkania>();
 
@@ -34,7 +35,7 @@ public class Wynajmujacy {
 	public Wynajmujacy() {
 	}
 	
-	public Wynajmujacy(Long id, String imie, String nazwisko, Long pesel) {
+	public Wynajmujacy(String imie, String nazwisko, String pesel) {
 	this.imie = imie;
 	this.nazwisko = nazwisko;
 	this.pesel = pesel;
@@ -50,7 +51,7 @@ public class Wynajmujacy {
 	}
 
 
-	@OneToMany(mappedBy = "wynajmujacy", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "wynajmujacy", fetch = FetchType.LAZY, cascade=CascadeType.PERSIST)
 	public List<Mieszkania> getMieszkania() {
 	return mieszkania;
 	}
@@ -74,12 +75,19 @@ public class Wynajmujacy {
 	}
 
 
-	public Long getPesel() {
+	public String getPesel() {
 		return pesel;
 	}
-	public void setPesel(Long pesel) {
+	public void setPesel(String pesel) {
 		this.pesel = pesel;
 	}
+
+		
+	
+	
+		
+		
+		
 
 	
 

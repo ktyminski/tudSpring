@@ -18,26 +18,35 @@ import javax.persistence.NamedQuery;
 
 
 import ktyminski.spring.domain.Wynajmujacy;
+import ktyminski.spring.domain.Mieszkania;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name = "Mieszkania.wszystkie", query = "Select m from Mieszkania m"),
+	@NamedQuery(name = "mieszkania.wszyscy", query = "Select m from Mieszkania m"),
 	
 })
 public class Mieszkania {
 
 	private Long id;
  	private Wynajmujacy wynajmujacy;
-	private String ulica = "";
-	private Integer cena = 0;
-	private String opis = "";
+	private String ulica="";
+	private String cena="";
+	private String opis="";
 
 	 public Mieszkania() {
 	}
 
-	public Mieszkania(Wynajmujacy wynajmujacy, String ulica , Integer cena, String opis)
+	public Mieszkania(Wynajmujacy wynajmujacy, String ulica , String cena, String opis)
 	{
 	this.wynajmujacy = wynajmujacy;
+	this.ulica = ulica;
+	this.cena = cena;
+	this.opis = opis;
+	}
+	
+	public Mieszkania( String ulica , String cena, String opis)
+	{
+	
 	this.ulica = ulica;
 	this.cena = cena;
 	this.opis = opis;
@@ -45,6 +54,7 @@ public class Mieszkania {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	
 	public Long getId() {
 		return id;
 	}
@@ -58,7 +68,10 @@ public class Mieszkania {
 	public Wynajmujacy getWynajmujacy() {
 	return wynajmujacy;
 	}
-	public void setWynajmujacy(Wynajmujacy wynajmujacy) { this.wynajmujacy=wynajmujacy; }
+	public void setWynajmujacy(Wynajmujacy wynajmujacy) 
+	{ 
+		this.wynajmujacy=wynajmujacy; 
+		}
 	
 	
 	public String getUlica() {
@@ -69,10 +82,10 @@ public class Mieszkania {
 	}
 
 
-	public Integer getCena() {
+	public String getCena() {
 		return cena;
 	}
-	public void setCena(Integer cena) {
+	public void setCena(String cena) {
 		this.cena = cena;
 	}
 

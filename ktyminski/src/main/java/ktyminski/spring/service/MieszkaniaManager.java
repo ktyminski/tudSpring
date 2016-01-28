@@ -1,27 +1,21 @@
-package ktyminski.spring.service;
+package  ktyminski.spring.service;
+
+
+import ktyminski.spring.domain.*;
 
 import java.util.List;
 
-import ktyminski.spring.domain.Mieszkania;
-import ktyminski.spring.domain.Wynajmujacy;
 
 public interface MieszkaniaManager {
 	
+	List<Mieszkania> getAllMieszkania();
+	Mieszkania getMieszkaniaById(Mieszkania mieszkania);
 
-    Mieszkania pobierzMieszkaniaPoId(Long id);
- 
+	void addMieszkania(Mieszkania mieszkania);
+	void editMieszkania(Mieszkania mieszkania);
+	void deleteMieszkania(Mieszkania mieszkania);
+	void addOddzialToMieszkania(Mieszkania mieszkania, Wynajmujacy wynajmujacy);
+	
 
-    Long dodaj(Mieszkania mieszkania);
- 
-
-    void edytuj(Mieszkania m, Wynajmujacy wynajmujacy, String ulica, Integer cena, String opis);
-    void usun(Mieszkania m);
-    
-	 List<Mieszkania> dajWszystkieMieszkania();
-	 List<Mieszkania> wyszukajMieszkaniayWgWynajmujacy(String porownaj);
-	 List<Mieszkania> wyszukajMieszkania(Wynajmujacy w);
-
-
+	
 }
-
-
