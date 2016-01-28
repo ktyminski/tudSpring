@@ -51,7 +51,7 @@ public class Wynajmujacy {
 	}
 
 
-	@OneToMany(mappedBy = "wynajmujacy", fetch = FetchType.LAZY, cascade=CascadeType.PERSIST)
+	@OneToMany(mappedBy = "wynajmujacy", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
 	public List<Mieszkania> getMieszkania() {
 	return mieszkania;
 	}

@@ -62,7 +62,7 @@ public class Mieszkania {
 		this.id = id;
 	}
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "id_wynajmujacy", nullable = false)
 	
 	public Wynajmujacy getWynajmujacy() {

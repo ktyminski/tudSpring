@@ -73,11 +73,11 @@ public class WynajmujacyTest {
 		Wynajmujacy wynajmujacy = new Wynajmujacy(IMIE.get(0), NAZWISKO.get(0), PESEL.get(0));
 		wynajmujacyManager.addWynajmujacy(wynajmujacy);
 		
-		Wynajmujacy foundWynajmujacy = wynajmujacyManager.getWynajmujacyById(wynajmujacy);
+		Wynajmujacy kontrolerWynajmujacy = wynajmujacyManager.getWynajmujacyById(wynajmujacy);
 
-		assertEquals(IMIE.get(0), foundWynajmujacy.getImie());
-		assertEquals(NAZWISKO.get(0), foundWynajmujacy.getNazwisko());
-		assertEquals(PESEL.get(0), foundWynajmujacy.getPesel());
+		assertEquals(IMIE.get(0), kontrolerWynajmujacy.getImie());
+		assertEquals(NAZWISKO.get(0), kontrolerWynajmujacy.getNazwisko());
+		assertEquals(PESEL.get(0), kontrolerWynajmujacy.getPesel());
 	}
 
 	@Test
@@ -86,20 +86,20 @@ public class WynajmujacyTest {
 		Wynajmujacy wynajmujacy = new Wynajmujacy(IMIE.get(0), NAZWISKO.get(0), PESEL.get(0));
 		wynajmujacyManager.addWynajmujacy(wynajmujacy);
 		
-		Wynajmujacy foundWynajmujacy = wynajmujacyManager.getWynajmujacyById(wynajmujacy);
+		Wynajmujacy kontrolerWynajmujacy = wynajmujacyManager.getWynajmujacyById(wynajmujacy);
 		
-		foundWynajmujacy.setImie(IMIE.get(1));
-		foundWynajmujacy.setNazwisko(NAZWISKO.get(1));
-		foundWynajmujacy.setPesel(PESEL.get(1));
-		wynajmujacyManager.editWynajmujacy(foundWynajmujacy);
+		kontrolerWynajmujacy.setImie(IMIE.get(1));
+		kontrolerWynajmujacy.setNazwisko(NAZWISKO.get(1));
+		kontrolerWynajmujacy.setPesel(PESEL.get(1));
+		wynajmujacyManager.editWynajmujacy(kontrolerWynajmujacy);
 		
-		Wynajmujacy foundEditedWynajmujacy = wynajmujacyManager.getWynajmujacyById(foundWynajmujacy);
+		Wynajmujacy kontrolerEditedWynajmujacy = wynajmujacyManager.getWynajmujacyById(kontrolerWynajmujacy);
 		
-		assertEquals(IMIE.get(1), foundEditedWynajmujacy.getImie());
-		assertEquals(NAZWISKO.get(1), foundEditedWynajmujacy.getNazwisko());
-		assertEquals(PESEL.get(1), foundEditedWynajmujacy.getPesel());
+		assertEquals(IMIE.get(1), kontrolerEditedWynajmujacy.getImie());
+		assertEquals(NAZWISKO.get(1), kontrolerEditedWynajmujacy.getNazwisko());
+		assertEquals(PESEL.get(1), kontrolerEditedWynajmujacy.getPesel());
 
-		wynajmujacyManager.deleteWynajmujacy(foundEditedWynajmujacy);
+		wynajmujacyManager.deleteWynajmujacy(kontrolerEditedWynajmujacy);
 		List<Wynajmujacy> newWynajmujacy = wynajmujacyManager.getAllWynajmujacy();
 		
 		assertEquals(listawynajmujacy, newWynajmujacy);
@@ -113,9 +113,9 @@ public class WynajmujacyTest {
 		Wynajmujacy wynajmujacy = new Wynajmujacy(IMIE.get(0), NAZWISKO.get(0), PESEL.get(0));
 		wynajmujacyManager.addWynajmujacy(wynajmujacy);
 		
-		Wynajmujacy foundWynajmujacy = wynajmujacyManager.getWynajmujacyById(wynajmujacy);
+		Wynajmujacy kontrolerWynajmujacy = wynajmujacyManager.getWynajmujacyById(wynajmujacy);
 		
-		wynajmujacyManager.deleteWynajmujacy(foundWynajmujacy);
+		wynajmujacyManager.deleteWynajmujacy(kontrolerWynajmujacy);
 		
 		int newNumber = wynajmujacyManager.getAllWynajmujacy().size();
 		

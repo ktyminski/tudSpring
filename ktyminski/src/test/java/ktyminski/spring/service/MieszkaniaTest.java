@@ -103,107 +103,65 @@ public class MieszkaniaTest {
 	}
 	
 	@Test
-	public void addMieszkania() {
+	public void addMieszkaniatest() {
 
 		Mieszkania mieszkania = new Mieszkania(M_ULICA.get(0), M_CENA.get(0), M_OPIS.get(0));
 		mieszkaniaManager.addMieszkania(mieszkania);
 		
-		Mieszkania foundMieszkania = mieszkaniaManager.getMieszkaniaById(mieszkania);
+		Mieszkania kontrolerMieszkania = mieszkaniaManager.getMieszkaniaById(mieszkania);
 
-		assertEquals(M_ULICA.get(0), foundMieszkania.getUlica());
-		assertEquals(M_CENA.get(0), foundMieszkania.getCena());
-		assertEquals(M_OPIS.get(0), foundMieszkania.getOpis());
+		assertEquals(M_ULICA.get(0), kontrolerMieszkania.getUlica());
+		assertEquals(M_CENA.get(0), kontrolerMieszkania.getCena());
+		assertEquals(M_OPIS.get(0), kontrolerMieszkania.getOpis());
 	}
+	
+	
 
 //	@Test
-//	public void editMieszkania() {
+//	public void editMieszkaniatest() {
 //
 //		Mieszkania mieszkania = new Mieszkania(M_ULICA.get(0), M_CENA.get(0), M_OPIS.get(0));
 //		mieszkaniaManager.addMieszkania(mieszkania);
 //		
-//		Mieszkania foundMieszkania = mieszkaniaManager.getMieszkaniaById(mieszkania);
+//		Mieszkania kontrolerMieszkania = mieszkaniaManager.getMieszkaniaById(mieszkania);
 //		
-//		foundMieszkania.setUlica(M_ULICA.get(1));
-//		foundMieszkania.setCena(M_CENA.get(1));
-//		foundMieszkania.setOpis(M_OPIS.get(1));
-//		mieszkaniaManager.editMieszkania(foundMieszkania);
+//		kontrolerMieszkania.setUlica(M_ULICA.get(1));
+//		kontrolerMieszkania.setCena(M_CENA.get(1));
+//		kontrolerMieszkania.setOpis(M_OPIS.get(1));
+//		mieszkaniaManager.editMieszkania(kontrolerMieszkania);
 //		
-//		Mieszkania foundEditedMieszkania = mieszkaniaManager.getMieszkaniaById(foundMieszkania);
+//		Mieszkania kontrolerEditedMieszkania = mieszkaniaManager.getMieszkaniaById(kontrolerMieszkania);
 //		
-//		assertEquals(M_ULICA.get(1), foundEditedMieszkania.getUlica());
-//		assertEquals(M_CENA.get(1), foundEditedMieszkania.getCena());
-//		assertEquals(M_OPIS.get(1), foundEditedMieszkania.getOpis());
+//		assertEquals(M_ULICA.get(1), kontrolerEditedMieszkania.getUlica());
+//		assertEquals(M_CENA.get(1), kontrolerEditedMieszkania.getCena());
+//		assertEquals(M_OPIS.get(1), kontrolerEditedMieszkania.getOpis());
 //
-//		mieszkaniaManager.deleteMieszkania(foundEditedMieszkania);
+//		mieszkaniaManager.deleteMieszkania(kontrolerEditedMieszkania);
 //		List<Mieszkania> newMieszkania = mieszkaniaManager.getAllMieszkania();
 //		
 //		assertEquals(savedMieszkania, newMieszkania);
 //	}
 //	
 //	@Test
-//	public void deleteMieszkania() {
+//	public void deleteMieszkaniatest() {
 //		
 //		int number = savedMieszkania.size();
 //		
 //		Mieszkania mieszkania = new Mieszkania(M_ULICA.get(0), M_CENA.get(0), M_OPIS.get(0));
 //		mieszkaniaManager.addMieszkania(mieszkania);
 //		
-//		Mieszkania foundMieszkania = mieszkaniaManager.getMieszkaniaById(mieszkania);
+//		Mieszkania kontrolerMieszkania = mieszkaniaManager.getMieszkaniaById(mieszkania);
 //		
-//		mieszkaniaManager.deleteMieszkania(foundMieszkania);
+//		mieszkaniaManager.deleteMieszkania(kontrolerMieszkania);
 //		
 //		int newNumber = mieszkaniaManager.getAllMieszkania().size();
 //		
 //		assertEquals(number, newNumber);
 //		
-//		foundMieszkania = mieszkaniaManager.getMieszkaniaById(mieszkania);
+//		kontrolerMieszkania = mieszkaniaManager.getMieszkaniaById(mieszkania);
 //		
-//		assertNull(foundMieszkania);
+//		assertNull(kontrolerMieszkania);
 //	}
 //	
-	/*
-	@Test
-	public void addMieszkaniaToWynajmujacy() {
-		
-		Wynajmujacy wynajmujacy = new Wynajmujacy(ODDZIAL_MIASTO, ODDZIAL_ULICA, ODDZIAL_NR);
-		wynajmujacyManager.addWynajmujacy(wynajmujacy);
-		
-		int n = mieszkaniaManager.get(wynajmujacy).size();
-		for (int i=0; i<3; i++) {
-			Ingredient ing = new Ingredient(ING_NAMES.get(i), ING_KINDS.get(i));
-			ingManager.addIngredientToCake(ing, cake);
-		}
-		
-		List<Ingredient> ingsOfCake = ingManager.getIngredientOfCake(cake);
-		
-		int i = 0;
-		for (Ingredient ing : ingsOfCake) {
-			assertEquals(ING_NAMES.get(i), ing.getName());
-			assertEquals(ING_KINDS.get(i), ing.getKind());
-			i++;
-		}
-		
-		assertEquals(n+3, ingManager.getIngredientOfCake(cake).size());
-	}
 	
-	@Test
-	public void removeIngFromCakeCheck() {
-		
-		Cake cake = new Cake(CAKE_NAME, CAKE_PRICE, CAKE_WEIGHT);
-		cakeManager.addCake(cake);
-		
-		Ingredient ing = new Ingredient(ING_NAMES.get(0), ING_KINDS.get(0));
-		
-		for (int i=0; i<3; i++) {
-			ing = new Ingredient(ING_NAMES.get(i), ING_KINDS.get(i));
-			ingManager.addIngredientToCake(ing, cake);
-		}
-		
-		int n = ingManager.getIngredientOfCake(cake).size();
-		
-		ingManager.removeIngredientFromCake(ing, cake);
-		
-		assertEquals(n-1, ingManager.getIngredientOfCake(cake).size());
-	}
-	*/
 }
